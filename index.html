@@ -1,27 +1,30 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/chat-client/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chad</title>
-    <script type="module" crossorigin src="/chat-client/assets/index-DNiOTdD9.js"></script>
-    <link rel="stylesheet" crossorigin href="/chat-client/assets/index-Cnx3tNNl.css">
-  </head>
-  <body>
-    <div id="app">
-      <h1 id="title">Chat websockets</h1>
-      <button id="connect">Conectar</button>
-      <div id="chat-container" hidden>
-        <br>
-        <div id="chat" class="chat">
-          <ul id="messages">
-            <li><span id="prefix-message"><strong>Server: </strong></span>Welcome to the chat room, how can i help you?</li>
-          </ul>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/chat-client/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chad</title>
+  <script type="module" crossorigin src="/chat-client/assets/index-BGQoCpuY.js"></script>
+  <link rel="stylesheet" crossorigin href="/chat-client/assets/index-CMWzv3HC.css">
+</head>
+
+<body>
+  <div class="main-div" id="app">
+    <h1 id="title">Chat websockets</h1>
+    <input type="text" id="name-chooser" class="name-chooser" value="" placeholder="Choose your name" />
+    <button id="connect">Conectar</button>
+    <div id="chat-container" hidden>
+      <br>
+      <ul id="messages" class="messages">
+      </ul>
+      <form class="input-container" onsubmit="return false;">
         <input type="text" id="message-input" class="message-input" value="" placeholder="Message" />
-        <button id="send-message">Send</button>
-      </div>
-    </div>
-  </body>
+        <button type="submit" id="send-message">Send</button>
+      </form>
+    </div>
+  </div>
+</body>
+
 </html>
