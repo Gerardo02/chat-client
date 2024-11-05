@@ -64,22 +64,62 @@ ul {
   list-style-type: none;
 }
 
-.chat {
-  /* background-color: #55555567; */
+.messages {
+  /*background-color: yellow;*/
   overflow: auto;
   width: 500px;
-  height: 300px;
+  height: 400px;
 }
 
 .name-chooser {
   background-color: #444444;
   font-size: 1em;
-  width: 410px;
+  width: 300px;
   height: 33px;
   border-radius: 8px;
   border: 1px solid transparent;
   transition: border-color 0.25s;
   margin-right: 2px;
+  padding-left: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.input-container {
+  margin-top: 10px;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.other-client {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: flex-start;
+}
+
+.client {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: flex-end;
+}
+
+.bubble {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  padding: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 0.75rem;
+}
+
+.server {
+  text-align: center;
+  margin: 4px;
 }
 
 .message-input {
@@ -91,6 +131,7 @@ ul {
   border: 1px solid transparent;
   transition: border-color 0.25s;
   margin-right: 2px;
+  padding-left: 10px;
 }
 
 input:hover {

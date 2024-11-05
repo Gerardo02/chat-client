@@ -16,11 +16,9 @@
     <button id="connect">Conectar</button>
     <div id="chat-container" hidden>
       <br>
-      <div id="chat" class="chat">
-        <ul id="messages">
-        </ul>
-      </div>
-      <form onsubmit="return false;">
+      <ul id="messages" class="messages">
+      </ul>
+      <form class="input-container" onsubmit="return false;">
         <input type="text" id="message-input" class="message-input" value="" placeholder="Message" />
         <button type="submit" id="send-message">Send</button>
       </form>

@@ -3,6 +3,7 @@ import './style.css'
 interface sendMessage {
     user_name: string
     message: string
+    first_message: boolean
 }
 
 const msgList = document.getElementById('messages');
@@ -12,13 +13,10 @@ const sendBtn = document.getElementById('send-message');
 const connectBtn = document.getElementById('connect');
 const chatContainer = document.getElementById('chat-container');
 
-let connected = false;
-
 const defaultName = "default-client"
 
+let connected = false;
 let socket: WebSocket | null = null
-
-
 
 connectBtn?.addEventListener('click', () => {
     if (chatContainer === null) return;
@@ -43,15 +41,19 @@ sendBtn?.addEventListener('click', () => {
     if (input.value === "") return;
     if (msgList === null) return;
 
-    console.log(input.value);
     const message: sendMessage = {
         user_name: nameInput.value === "" ? defaultName : nameInput.value,
-        message: input.value
+        message: input.value,
+        first_message: false
     }
     socket?.send(JSON.stringify(message))
 
     msgList.innerHTML += `
-        <li><span id="prefix-message"><strong>${nameInput.value === "" ? defaultName : nameInput.value}: </strong></span>${input.value}</li>
+        <li class="message client">
+            <span class="bubble" style="background-color: #595959;">
+                <span>${input.value}</span>
+            </span>
+        </li>
     `;
 
     input.value = "";
@@ -66,7 +68,8 @@ function connectWebsocket() {
         connected = true
         const message: sendMessage = {
             user_name: nameInput.value === "" ? defaultName : nameInput.value,
-            message: "READY"
+            message: "READY",
+            first_message: true
         }
         socket?.send(JSON.stringify(message));
     };
@@ -74,9 +77,29 @@ function connectWebsocket() {
     socket.onmessage = (event) => {
         if (msgList === null) return;
 
-        console.log("Message from server:", event.data);
+        const response: sendMessage = JSON.parse(event.data)
+        console.log("Message from server:", response.message);
+
+        if (response.user_name === "Server") {
+            msgList.innerHTML += `
+                <li class="server">
+                    ${response.message}
+                </li>
+            `;
+
+            return
+        }
+
         msgList.innerHTML += `
-            <li><span id="prefix-message"><strong>Server: </strong></span>${event.data}</li>
+            <li class="message other-client">
+                <span class="bubble" style="background-color: #3d3d3d;">
+                    <span id="prefix-message">
+                        <strong>${response.user_name}</strong>
+                    </span>
+
+                    <span>${response.message}</span>
+                </span>
+            </li>
         `;
     };
 
