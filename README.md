@@ -2,7 +2,7 @@
 
 This simple websockets implementation serves the purpose of me expanding my knowledge on different network protocols aside from http.
 
-## Requirenments
+## Requirements
 
 You'll need to run the server locally, for this you need go installed. The server runs on version 1.22.0 but is go so probably the version you already have installed works fine.
 You can refer to the repo [here.](https://github.com/Gerardo02/chat-server)
