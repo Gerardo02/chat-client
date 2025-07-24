@@ -6,7 +6,7 @@ This simple websockets implementation serves the purpose of me expanding my know
 
 You'll need to run the server locally, for this you need go installed. The server runs on version 1.22.0 but is go so probably the version you already have installed works fine.
 You can refer to the repo [here.](https://github.com/Gerardo02/chat-server)
-Also, install [make.].(https://www.gnu.org/software/make)
+Also, install [make.](https://www.gnu.org/software/make)
 
 ## Run Server
 
